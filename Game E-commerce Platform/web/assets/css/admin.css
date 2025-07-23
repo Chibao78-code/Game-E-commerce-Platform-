@@ -1,0 +1,54 @@
+            body {
+                background-image: url('assets/image/1551360_2.jpg') !important;
+                font-family: 'Arial', sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+
+            .container {
+                display: flex;
+                min-height: 100vh;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                background: white;
+                border-radius: 10px;
+                margin: 20px;
+            }
+            
+            .main-content {
+                flex: 1;
+                padding: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh; /* Đảm bảo chiều cao tối thiểu bằng màn hình */
+            }
+
+            h2 {
+                color: #2c3e50;
+                border-bottom: 2px solid #3498db;
+                padding-bottom: 10px;
+                margin-bottom: 20px;
+            }
+
+            .error-permission {
+                background: #ffebee;
+                padding: 20px;
+                border-radius: 5px;
+                color: #c0392b;
+                text-align: center;
+            }
+
+            .error-permission a {
+                color: #2980b9;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+            .error-permission a:hover {
+                text-decoration: underline;
+            }
+
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }

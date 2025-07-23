@@ -1,0 +1,38 @@
+/* assets/css/slidebar.css */
+.sidebar {
+    width: 240px;
+    height: 100vh;
+    background-image: url('../image/Forza-Horizon-5-Xbox-Game-Studios-2252690.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.sidebar h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.sidebar ul li a:hover {
+    color: #ffcc00;
+}

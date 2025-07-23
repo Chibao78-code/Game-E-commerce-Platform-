@@ -1,0 +1,162 @@
+/*
+    Created on : Mar 24, 2025, 9:42:10 PM
+    Author     : LENOVO
+*/
+
+/* Tổng thể layout */
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin-left: 0; /* Loại bỏ margin-left: 100px để sidebar và main-content sát nhau */
+}
+
+.main-content {
+    margin-left: 250px; /* Để lại khoảng trống cho sidebar */
+    padding: 20px;
+    width: calc(100% - 250px);
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2b2b2b 100%); /* Nền tối gradient kiểu game */
+    color: #fff; /* Chữ trắng cho chủ đề tối */
+}
+
+/* Search Box */
+.search-container {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-container label {
+    font-size: 16px;
+    color: #00ccff; /* Màu neon cyan */
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.search-container input[type="text"] {
+    padding: 10px;
+    width: 350px;
+    border: 2px solid #00ccff;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.search-container input[type="text"]:focus {
+    border-color: #ff00ff; /* Neon magenta khi focus */
+    outline: none;
+}
+
+.search-btn {
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #00ccff, #ff00ff); /* Gradient neon */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-btn:hover {
+    transform: scale(1.05); /* Phóng to nhẹ khi hover */
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5); /* Hiệu ứng phát sáng neon */
+}
+
+/* Table Wrapper */
+.table-wrapper {
+    overflow-x: auto;
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 204, 255, 0.3); /* Hiệu ứng bóng neon */
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: separate; /* Để border-radius hoạt động */
+    border-spacing: 0;
+    background-color: #222; /* Nền tối kiểu game */
+    min-width: 800px;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #444; /* Đường viền mờ */
+}
+
+th {
+    background: linear-gradient(90deg, #00ccff, #007bff); /* Gradient header */
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: sticky;
+    top: 0; /* Cố định header khi cuộn */
+    z-index: 10;
+}
+
+td {
+    font-size: 14px;
+    color: #ddd;
+}
+
+tr:nth-child(even) {
+    background-color: #2a2a2a; /* Nền xen kẽ tối hơn */
+}
+
+tr:hover {
+    background-color: #333; /* Hover sáng hơn */
+    box-shadow: 0 0 10px rgba(0, 204, 255, 0.5); /* Hiệu ứng neon khi hover */
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Cột Action */
+td:last-child a {
+    color: #00ccff; /* Màu neon cho link */
+    text-decoration: none;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+td:last-child a:hover {
+    color: #ff00ff; /* Neon magenta khi hover */
+    text-shadow: 0 0 5px rgba(255, 0, 255, 0.7); /* Hiệu ứng phát sáng */
+}
+
+/* No Results */
+.no-results {
+    color: #888;
+    font-style: italic;
+    font-size: 16px;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Error Permission */
+.error-permission {
+    text-align: center;
+    color: #ff4444; /* Đỏ neon */
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.error-permission a {
+    color: #00ccff;
+    text-decoration: none;
+}
+
+.error-permission a:hover {
+    color: #ff00ff;
+    text-shadow: 0 0 5px rgba(255, 0, 255, 0.7);
+}

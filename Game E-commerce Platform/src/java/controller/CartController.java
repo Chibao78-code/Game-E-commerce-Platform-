@@ -79,22 +79,28 @@ public class CartController extends HttpServlet {
                     int gameId = Integer.parseInt(request.getParameter("gameId"));
                     int quantity = Integer.parseInt(request.getParameter("quantity"));
                     GameDTO game = gameDAO.getGameById(gameId);
-                    for (CartItem item : cart) {
-                        if (item.getGameId() == gameId) {
-                            if (quantity > 0 && quantity <= game.getStock()) {
-                                item.setQuantity(quantity);
-                                request.setAttribute("message", "Đã cập nhật số lượng cho " + game.getGameName() + "!");
-                            } else if (quantity <= 0) {
-                                cart.remove(item);
-                                request.setAttribute("message", "Đã xóa " + game.getGameName() + " khỏi giỏ hàng!");
-                            } else {
-                                request.setAttribute("message", "Số lượng vượt quá tồn kho cho " + game.getGameName() + "!");
+                    if (game == null) {
+                        request.setAttribute("message", "Game không tồn tại!");
+                        url = CART_PAGE;
+                    } else {
+                        for (int i = 0; i < cart.size(); i++) {
+                            CartItem item = cart.get(i);
+                            if (item.getGameId() == gameId) {
+                                if (quantity > 0 && quantity <= game.getStock()) {
+                                    item.setQuantity(quantity);
+                                    request.setAttribute("message", "Đã cập nhật số lượng cho " + game.getGameName() + "!");
+                                } else if (quantity <= 0) {
+                                    cart.remove(i);
+                                    request.setAttribute("message", "Đã xóa " + game.getGameName() + " khỏi giỏ hàng!");
+                                } else {
+                                    request.setAttribute("message", "Số lượng vượt quá tồn kho cho " + game.getGameName() + "!");
+                                }
+                                break;
                             }
-                            break;
                         }
+                        session.setAttribute("cart", cart);
+                        url = CART_PAGE;
                     }
-                    session.setAttribute("cart", cart);
-                    url = CART_PAGE;
                 } else if ("checkout".equals(action)) {
                     url = processCheckout(request, response, cart, session, user);
                 }

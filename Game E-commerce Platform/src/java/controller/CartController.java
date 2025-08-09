@@ -139,7 +139,10 @@ public class CartController extends HttpServlet {
             // Create order details and update stock
             for (CartItem item : cart) {
                 GameDTO game = gameDAO.getGameById(item.getGameId());
-                if (game.getStock() >= item.getQuantity()) {
+                if (game == null) {
+                    request.setAttribute("message", "Game " + item.getGameName() + " không tồn tại. Vui lòng kiểm tra lại giỏ hàng!");
+                    return url;
+                } else if (game.getStock() >= item.getQuantity()) {
                     gameDAO.createOrderDetail(orderId, item.getGameId(), item.getQuantity(), item.getPrice());
                     gameDAO.updateStock(item.getGameId(), item.getQuantity());
                 } else {
